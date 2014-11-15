@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-6
+      %form{id: "user_search", action: "#{url_for("/purchase")}", method: "POST"}
+        .form-group
+          %input.form-control{type: "text", id: "bidder_number", name: "bidder_number", autofocus: true}
+          %input.form-control{type: "text", id: "item_id", name: "item_id"}
+:javascript

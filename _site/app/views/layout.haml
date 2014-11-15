@@ -18,19 +18,30 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href:"#{url_for("/")}"}
-          App
       .collapse.navbar-collapse#navbar-collapse
         %ul.nav.navbar-nav
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", data:{toggle: "dropdown"}, role:"button", aria: {expanded: "false"}}
+              Users
+              %span.caret
+            %ul.dropdown-menu{role:"button"}
+              %li
+                %a{href: "#{url_for("/admin/users")}"}
+                  Manage Users 
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", data:{toggle: "dropdown"}, role:"button", aria: {expanded: "false"}}
+              Items
+              %span.caret
+            %ul.dropdown-menu{role:"button"}
+              %li
+                %a{href: "#{url_for("/admin/items")}"}
+                  Manage Items
+        %ul.nav.navbar-right{role:"button"}
           %li
-            %a{href: "#{url_for("/")}"}
-              Menu stuff goes here
+            %a.navbar-brand{href:"#{url_for("/")}"}
+              Sequoia Fall 2014 Auction Checkout
     .container#content
       =yield
     .container.footer
-      A 
-      %a{href:"https://patf.net"}
-        patf
-      joint
 :javascript
 

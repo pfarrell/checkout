@@ -1,0 +1,36 @@
+%table.table
+  %thead
+    %tr
+      %th
+        Bidder ID
+      %th
+        Bidder Name
+      %th
+        Purchases
+  %tbody
+  -bidders.each do |bidder|
+    %tr
+      %td
+        =bidder.bidder_id
+      %td
+        =bidder.name
+      %td
+        =bidder.purchases.size
+      %td
+        %a{href:"/bidder/#{bidder.id}"}
+          Edit
+      %td
+        %a{href:"/bidder/#{bidder.id}/receipt"}
+          Receipt
+%hr
+%form{role:"form", method:"POST", action:"/bidder/new"}
+  .form-group
+    %label{for:"bidder_id"}
+      Bidder ID
+    %input.form-control{type:"text", name:"bidder_id", placeholder:"Bidder ID"}
+  .form-group
+    %label{for:"name"}
+      Bidder Name
+    %input.form-control{type:"text", name:"name", placeholder:"Bidder Name"}
+  %button.btn.btn-default{type:"submit", value:"Save Bidder"}
+    New Bidder

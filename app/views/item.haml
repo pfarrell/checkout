@@ -1,0 +1,11 @@
+%form{role:"form", method:"POST", action:"/item/#{item.id}"}
+  .form-group
+    %label{for:"item_id"}
+      Item ID
+    %input.form-control{type:"text", name:"item_id", placeholder:"Item ID", value:"#{item.item_id}"}
+  .form-group
+    %label{for:"name"}
+      Item Name
+    %input.form-control{type:"text", name:"name", placeholder:"Item Name", value:"#{item.name}"}
+  %button.btn.btn-default{type:"submit", value:"Save Item"}
+    Save Item

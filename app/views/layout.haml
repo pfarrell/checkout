@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title#title
+      #{@title}
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content=>"width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{:name=>"apple-mobile-web-app-capable", :content=>"yes"}
+    %script{:type => "text/javascript", :src => "#{url_for('/libs/jquery/dist/jquery.min.js')}"}
+    %link{:href=>"#{url_for('/libs/bootstrap/dist/css/bootstrap.min.css')}", :rel=>"stylesheet"}
+    %link{:href=>"#{url_for('/css/default.css')}", :rel=>"stylesheet"}
+    %script{:src=>"#{url_for('/libs/bootstrap/dist/js/bootstrap.min.js')}"}
+  %body
+    %nav.navbar.navbar-default{role: "navigation"}
+      .navbar-header
+        %button.navbar-toggle{type:"button", data:{toggle: "collapse", target: "#navbar-collapse"}}
+          %span.sr-only
+            Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      .collapse.navbar-collapse#navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            %a{href:"/"}
+              Purchases
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", data:{toggle: "dropdown"}, role:"button", aria: {expanded: "false"}}
+              Bidders
+              %span.caret
+            %ul.dropdown-menu{role:"button"}
+              %li
+                %a{href: "#{url_for("/bidders")}"}
+                  Bidders
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", data:{toggle: "dropdown"}, role:"button", aria: {expanded: "false"}}
+              Items
+              %span.caret
+            %ul.dropdown-menu{role:"button"}
+              %li
+                %a{href: "#{url_for("/items")}"}
+                  Manage Items
+        %ul.nav.navbar-right{role:"button"}
+          %li
+            %a.navbar-brand{href:"#{url_for("/")}"}
+              Sequoia Fall 2014 Auction Checkout
+    .container#content
+      =yield
+    .container.footer
+:javascript
+

@@ -1,0 +1,11 @@
+%form{role:"form", method:"POST", action:"/bidder/#{bidder.id}"}
+  .form-group
+    %label{for:"bidder_id"}
+      Bidder ID
+    %input.form-control{type:"text", name:"bidder_id", placeholder:"Bidder ID", value:"#{bidder.bidder_id}"}
+  .form-group
+    %label{for:"name"}
+      Bidder Name
+    %input.form-control{type:"text", name:"name", placeholder:"Bidder Name", value:"#{bidder.name}"}
+  %button.btn.btn-default{type:"submit", value:"Save Bidder"}
+    New Bidder

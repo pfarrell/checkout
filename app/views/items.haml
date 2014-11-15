@@ -1,0 +1,33 @@
+%table.table
+  %thead
+    %tr
+      %th
+        Item ID
+      %th
+        Item Name
+      %th
+        Purchased?
+  %tbody
+  -items.each do |item|
+    %tr
+      %td
+        =item.item_id
+      %td
+        =item.name
+      %td
+        =item.purchased?
+      %td
+        %a{href:"/item/#{item.id}"}
+          Edit
+%hr
+%form{role:"form", method:"POST", action:"/item/new"}
+  .form-group
+    %label{for:"item_id"}
+      Item ID
+    %input.form-control{type:"text", name:"item_id", placeholder:"Item ID"}
+  .form-group
+    %label{for:"name"}
+      Item Name
+    %input.form-control{type:"text", name:"name", placeholder:"Item Name"}
+  %button.btn.btn-default{type:"submit", value:"Save Item"}
+    New Item

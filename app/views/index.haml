@@ -1,0 +1,23 @@
+%form{id: "user_search", action: "#{url_for("/purchase")}", method: "POST"}
+  .container
+    .row
+      .col-md-3
+        .form-group
+          %input.form-control{type: "text", id: "bidder_number", name: "bidder_number", autofocus: true}
+          %label{for:"bidder_number"}
+            Bidder Number
+      .col-md-3
+        .form-group
+          %input.form-control{type: "text", id: "item_id", name: "item_id"}
+          %label{for:"item_id"}
+            Item ID
+      .col-md-3
+        .form-group
+          %input.form-control{type: "text", id: "price", name: "price"}
+          %label{for:"price"}
+            Price
+      .col-md-3
+        %button.form-control.btn.btn-default{type:"submit"}
+          Save
+        
+:javascript
