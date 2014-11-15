@@ -24,5 +24,6 @@ class App < Sinatra::Application
   end
 
   get '/bidder/:id/receipt' do
+    haml :receipt, locals: {bidder: Bidder[params[:id]]}
   end
 end

@@ -3,7 +3,7 @@
     .row
       .col-md-3
         .form-group
-          %input.form-control{type: "text", id: "bidder_number", name: "bidder_number", autofocus: true}
+          %input.form-control{type: "text", id: "bidder_id", name: "bidder_id", autofocus: true}
           %label{for:"bidder_number"}
             Bidder Number
       .col-md-3
@@ -19,5 +19,44 @@
       .col-md-3
         %button.form-control.btn.btn-default{type:"submit"}
           Save
-        
+%hr
+%table.table
+  %thead
+    %tr
+      %th
+        Bidder ID
+      %th
+        Bidder Name
+      %th
+        Item ID
+      %th
+        Item Name
+      %th
+        Price
+  %tbody
+  -purchases.each do |purchase|
+    %tr
+      %td
+        =purchase.bidder.bidder_id
+      %td
+        =purchase.bidder.name
+      %td
+        =purchase.item.item_id
+      %td
+        =purchase.item.name
+      %td
+        =purchase.price
+      %td
+        %a{href:"/purchase/#{purchase.id}"}
+          Edit
+      %td
+        %a{href:"javascript:conf('Okay to Delete?', '/purchase/delete/#{purchase.id}')"}
+          Delete
 :javascript
+
+  function conf(msg, url) {
+    var r = confirm(msg);
+    if (r == true) {
+      window.location = url;
+    } 
+  }

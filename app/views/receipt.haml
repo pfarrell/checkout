@@ -1,0 +1,29 @@
+%h2
+  =bidder.name
+.container
+  .col-md-9
+    %table.table.table-striped
+      %thead
+        %tr
+          %th
+            Item ID
+          %th
+            Item Name
+          %th
+            Price
+      -bidder.purchases.each do |purchase|
+        %tbody
+          %tr   
+            %td
+              =purchase.item.id
+            %td
+              =purchase.item.name
+            %td
+              $#{'%0.2f' % purchase.price}
+%hr
+%h3
+  Total: $#{'%0.2f' % bidder.purchases.inject(0){|sum,purchase| sum+purchase.price}}
+%h3
+  Paid? ______
+%button.btn{onclick:"javascript:window.print();"}
+  Print
