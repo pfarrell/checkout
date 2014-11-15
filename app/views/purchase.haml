@@ -1,0 +1,15 @@
+%form{id: "user_search", action: "#{url_for("/purchase/#{purchase.id}")}", method: "POST"}
+  .form-group
+    %label{for:"bidder_number"}
+      Bidder Number
+    %input.form-control{type: "text", id: "bidder_id", name: "bidder_id", autofocus: true, value: "#{purchase.bidder.bidder_id}"}
+  .form-group
+    %label{for:"item_id"}
+      Item ID
+    %input.form-control{type: "text", id: "item_id", name: "item_id", value: "#{purchase.item.item_id}"}
+  .form-group
+    %label{for:"price"}
+      Price
+    %input.form-control{type: "text", id: "price", name: "price", value: "$#{'%0.2f' % purchase.price}"}
+  %button.form-control.btn.btn-default{type:"submit"}
+    Save

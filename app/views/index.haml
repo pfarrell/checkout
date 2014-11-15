@@ -1,4 +1,4 @@
-%form{id: "user_search", action: "#{url_for("/purchase")}", method: "POST"}
+%form{id: "user_search", action: "#{url_for("/purchase/new")}", method: "POST"}
   .container
     .row
       .col-md-3
@@ -37,15 +37,19 @@
   -purchases.each do |purchase|
     %tr
       %td
-        =purchase.bidder.bidder_id
+        %a{href:"/bidder/#{purchase.bidder.id}"}
+          =purchase.bidder.bidder_id
       %td
-        =purchase.bidder.name
+        %a{href:"/bidder/#{purchase.bidder.id}"}
+          =purchase.bidder.name
       %td
-        =purchase.item.item_id
+        %a{href:"/item/#{purchase.item.id}"}
+          =purchase.item.item_id
       %td
-        =purchase.item.name
+        %a{href:"/item/#{purchase.item.id}"}
+          =purchase.item.name
       %td
-        =purchase.price
+        $#{'%0.2f' % purchase.price}
       %td
         %a{href:"/purchase/#{purchase.id}"}
           Edit

@@ -1,11 +1,11 @@
 class App < Sinatra::Application
-  post '/purchase' do
+  post '/purchase/new' do
     p=Purchase.new
     b=Bidder.first(bidder_id: "#{params[:bidder_id]}")
     i=Item.first(item_id: "#{params[:item_id]}")
     p.item = i
     p.bidder = b
-    p.price = params[:price]
+    p.price = params[:price].gsub('$', '')
     p.save
     redirect("/")
   end
@@ -20,7 +20,7 @@ class App < Sinatra::Application
     i=Item.first(item_id: "#{params[:item_id]}")
     p.item = i
     p.bidder = b
-    p.price = params[:price]
+    p.price = params[:price].gsub('$', '')
     p.save
     redirect("/")
   end
