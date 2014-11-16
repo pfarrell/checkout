@@ -1,3 +1,15 @@
+%form{role:"form", method:"POST", action:"/bidder/new"}
+  .form-group
+    %label{for:"bidder_id"}
+      Bidder ID
+    %input.form-control{type:"text", name:"bidder_id", placeholder:"Bidder ID"}
+  .form-group
+    %label{for:"name"}
+      Bidder Name
+    %input.form-control{type:"text", name:"name", placeholder:"Bidder Name"}
+  %button.btn.btn-default{type:"submit", value:"Save Bidder"}
+    New Bidder
+%hr
 %table.table
   %thead
     %tr
@@ -22,15 +34,3 @@
       %td
         %a{href:"/bidder/#{bidder.id}/receipt"}
           Receipt
-%hr
-%form{role:"form", method:"POST", action:"/bidder/new"}
-  .form-group
-    %label{for:"bidder_id"}
-      Bidder ID
-    %input.form-control{type:"text", name:"bidder_id", placeholder:"Bidder ID"}
-  .form-group
-    %label{for:"name"}
-      Bidder Name
-    %input.form-control{type:"text", name:"name", placeholder:"Bidder Name"}
-  %button.btn.btn-default{type:"submit", value:"Save Bidder"}
-    New Bidder

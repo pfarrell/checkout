@@ -1,5 +1,8 @@
-%h2
-  =bidder.name
+%h2.text-center
+  Sequoia Auction 2014
+%hr
+%h3
+  #{bidder.name} (##{bidder.bidder_id})
 .container
   .col-md-9
     %table.table.table-striped
@@ -25,5 +28,7 @@
   Total: $#{'%0.2f' % bidder.purchases.inject(0){|sum,purchase| sum+purchase.price}}
 %h3
   Paid? ______
+%h4.text-center
+  Thank you for supporting Sequoia Nursery School!
 %button.btn{onclick:"javascript:window.print();"}
   Print

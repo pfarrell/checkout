@@ -3,3 +3,4 @@ vendor
 coverage
 .bundle
 init.rb
+goods.rb

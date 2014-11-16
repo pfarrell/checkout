@@ -2,7 +2,7 @@
 %html
   %head
     %title#title
-      #{@title}
+      Sequoia Auction Checkout
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content=>"width=device-width, initial-scale=1, maximum-scale=1"}
     %meta{:name=>"apple-mobile-web-app-capable", :content=>"yes"}
@@ -20,26 +20,12 @@
           %span.icon-bar
           %span.icon-bar
       .collapse.navbar-collapse#navbar-collapse
-        %ul.nav.navbar-nav
-          %li
-            %a{href:"/"}
-              Purchases
-          %li.dropdown
-            %a.dropdown-toggle{href: "#", data:{toggle: "dropdown"}, role:"button", aria: {expanded: "false"}}
-              Bidders
-              %span.caret
-            %ul.dropdown-menu{role:"button"}
-              %li
-                %a{href: "#{url_for("/bidders")}"}
-                  Bidders
-          %li.dropdown
-            %a.dropdown-toggle{href: "#", data:{toggle: "dropdown"}, role:"button", aria: {expanded: "false"}}
-              Items
-              %span.caret
-            %ul.dropdown-menu{role:"button"}
-              %li
-                %a{href: "#{url_for("/items")}"}
-                  Manage Items
+        %a.btn.navbar-btn.btn-primary{href:"/"}
+          Purchases
+        %a.btn.navbar-btn.btn-warning{href: "#{url_for("/bidders")}"}
+          Bidders
+        %a.btn.navbar-btn.btn-success{href: "#{url_for("/items")}"}
+          Items
         %ul.nav.navbar-right{role:"button"}
           %li
             %a.navbar-brand{href:"#{url_for("/")}"}

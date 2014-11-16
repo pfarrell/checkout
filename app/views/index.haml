@@ -1,24 +1,36 @@
 %form{id: "user_search", action: "#{url_for("/purchase/new")}", method: "POST"}
+  -unless errors.nil?
+    .errors
+      -errors.each do |type,msg|
+        .error
+          =msg
   .container
     .row
       .col-md-3
         .form-group
-          %input.form-control{type: "text", id: "bidder_id", name: "bidder_id", autofocus: true}
+          %input.form-control.input-lg{type: "text", id: "bidder_id", name: "bidder_id", autofocus: true}
           %label{for:"bidder_number"}
             Bidder Number
       .col-md-3
         .form-group
-          %input.form-control{type: "text", id: "item_id", name: "item_id"}
+          %input.form-control.input-lg{type: "text", id: "item_id", name: "item_id"}
           %label{for:"item_id"}
             Item ID
       .col-md-3
         .form-group
-          %input.form-control{type: "text", id: "price", name: "price"}
+          %input.form-control.input-lg{type: "text", id: "price", name: "price"}
           %label{for:"price"}
             Price
+    .row
       .col-md-3
         %button.form-control.btn.btn-default{type:"submit"}
           Save
+      .col-md-5
+        .checkbox
+          %input{type:"checkbox", name:"create_item", onclick:"javascript:toggle(this, 'item_name');"}
+            Override Item check (creates a new item)
+        %input.form-control.input-sm{type:"text", id:"item_name", name:"item_name", style:"display:none;", placeholder:"New Item Title"} 
+          
 %hr
 %table.table
   %thead
@@ -51,10 +63,10 @@
       %td
         $#{'%0.2f' % purchase.price}
       %td
-        %a{href:"/purchase/#{purchase.id}"}
+        %a.btn.btn-info{href:"/purchase/#{purchase.id}"}
           Edit
       %td
-        %a{href:"javascript:conf('Okay to Delete?', '/purchase/delete/#{purchase.id}')"}
+        %a.btn.btn-danger{href:"javascript:conf(\"Okay to Remove item #{purchase.item.item_id} for bidder #{purchase.bidder.bidder_id}?\", '/purchase/delete/#{purchase.id}')"}
           Delete
 :javascript
 
@@ -63,4 +75,9 @@
     if (r == true) {
       window.location = url;
     } 
+  }
+
+  function toggle(cb, tgt) {
+    var elem = document.getElementById(tgt);
+    elem.style.display = cb.checked ? "block" : "none";
   }

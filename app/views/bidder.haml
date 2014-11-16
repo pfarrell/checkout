@@ -8,7 +8,7 @@
       Bidder Name
     %input.form-control{type:"text", name:"name", placeholder:"Bidder Name", value:"#{bidder.name}"}
   %button.btn.btn-default{type:"submit", value:"Save Bidder"}
-    New Bidder
+    Save Bidder
 .container
   .col-md-9
     %table.table.table-striped
@@ -24,7 +24,7 @@
         %tbody
           %tr   
             %td
-              =purchase.item.id
+              =purchase.item.item_id
             %td
               =purchase.item.name
             %td

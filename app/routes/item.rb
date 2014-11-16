@@ -1,6 +1,6 @@
 class App < Sinatra::Application
   get '/items' do
-    haml :items, locals: {items: Item.all}
+    haml :items, locals: {items: Item.order(:item_id).all}
   end
 
   post '/item/new' do
