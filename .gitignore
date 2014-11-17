@@ -4,3 +4,5 @@ coverage
 .bundle
 init.rb
 goods.rb
+checkout_backup.sql
+nohup.out
