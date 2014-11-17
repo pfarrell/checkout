@@ -1,0 +1,18 @@
+%table.table
+  %thead
+    %tr
+      -header.keys.each do |header|
+        %th
+          =header
+  %tbody
+    -data.each do |row|
+      %tr
+        -header.each do |name,prop|
+          %td
+            =prop.call(row)
+    %tr
+      -(1..header.size-1).each do
+        %td
+      %td
+        =total
+      
