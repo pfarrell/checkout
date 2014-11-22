@@ -7,6 +7,7 @@ class App < Sinatra::Application
     props={}
     props["Item ID"]= lambda{|x| x.item.item_id} 
     props["Item Description"] = lambda{|x| x.item.name} 
+    props["Purchaser ID"]= lambda{|x| x.bidder.bidder_id} 
     props["Purchaser"]= lambda{|x| x.bidder.name} 
     props["Price"]= lambda{|x| x.purchase_price} 
 
